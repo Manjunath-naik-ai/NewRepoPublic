@@ -120,3 +120,59 @@ CREATE TABLE Feedback (
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
+
+Go
+--Login Stored Procedure
+
+CREATE PROCEDURE sp_LoginUserByRole
+    @Email VARCHAR(100),
+    @PasswordHash VARCHAR(255),
+    @LoginResult INT OUTPUT  -- Output parameter to return status
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Role VARCHAR(20);
+
+    -- Try to find the user and get the role
+    SELECT TOP 1 @Role = role
+    FROM Users
+    WHERE email = @Email AND password_hash = @PasswordHash;
+
+    IF @Role IS NOT NULL
+    BEGIN
+        -- Return full user details (optional)
+        SELECT user_id, name, email, role, created_at
+        FROM Users
+        WHERE email = @Email;
+
+        -- Set the output based on role
+        IF @Role = 'Admin'
+            SET @LoginResult = 1;
+        ELSE
+            SET @LoginResult = 2;
+    END
+    ELSE
+    BEGIN
+        SET @LoginResult = -1;  -- Invalid credentials
+    END
+END
+
+
+--Insertion Script
+INSERT INTO Users (name, email, password_hash, role, created_at)
+VALUES 
+('Admin User', 'admin@example.com', 'hashed_admin_password_123', 'Admin', GETDATE()),
+('John Doe', 'john.doe@example.com', 'hashed_john_password_456', 'User', GETDATE()),
+('Jane Smith', 'jane.smith@example.com', 'hashed_jane_password_789', 'User', GETDATE());
+
+--check login is working
+
+DECLARE @LoginStatus INT;
+
+EXEC sp_LoginUserByRole 
+    @Email = 'admin@example.com', 
+    @PasswordHash = 'hashed_admin_password_123', 
+    @LoginResult = @LoginStatus OUTPUT;
+
+SELECT @LoginStatus AS LoginResult;
