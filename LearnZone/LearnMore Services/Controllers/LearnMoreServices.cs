@@ -16,6 +16,7 @@ namespace LearnMore_Services.Controllers
             this.repositary = repositary;
 
         }
+        #region  login
         [HttpGet("Login")]
         public int Login(String username , string password)
         {
@@ -31,7 +32,9 @@ namespace LearnMore_Services.Controllers
             }
             return (res);
         }
+        #endregion
 
+        #region  Regiister
         [HttpPost("register")]
         public int Register(string name, string email, string passwordHash)
         {
@@ -47,7 +50,7 @@ namespace LearnMore_Services.Controllers
             }
             return res;
         }
-
+        #endregion
 
     }
 }
