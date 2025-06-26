@@ -16,7 +16,7 @@ namespace LearnMore_Services.Controllers
             this.repositary = repositary;
 
         }
-        [HttpGet]
+        [HttpGet("Login")]
         public int Login(String username , string password)
         {
             int res = 0;
@@ -30,6 +30,22 @@ namespace LearnMore_Services.Controllers
                 res = -1;
             }
             return (res);
+        }
+
+        [HttpPost("register")]
+        public int Register(string name, string email, string passwordHash)
+        {
+            int res = 0;
+            try
+            {
+                var (result, userId) = repositary.RegisterUser(name, email, passwordHash);
+                res = result; // 1 = success, -1 = email exists, 0 = error
+            }
+            catch (Exception)
+            {
+                res = 0;
+            }
+            return res;
         }
 
 

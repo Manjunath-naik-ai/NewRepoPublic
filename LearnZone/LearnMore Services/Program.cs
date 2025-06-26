@@ -11,11 +11,18 @@ namespace LearnMore_Services
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<LearnZoneContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionStringName")));
+
+            builder.Services.AddScoped<LearnMoreRepositary>();
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+           
+
 
             var app = builder.Build();
 

@@ -176,3 +176,58 @@ EXEC sp_LoginUserByRole
     @LoginResult = @LoginStatus OUTPUT;
 
 SELECT @LoginStatus AS LoginResult;
+
+GO
+-------------------------------------
+--register Stored procedure
+-- Make sure you're in the correct database
+USE LearnZone;
+GO
+
+-- Drop the procedure if it exists
+IF OBJECT_ID('sp_RegisterUser', 'P') IS NOT NULL
+    DROP PROCEDURE sp_RegisterUser;
+GO
+
+
+
+
+CREATE PROCEDURE sp_RegisterUser
+    @Name VARCHAR(100),
+    @Email VARCHAR(100),
+    @PasswordHash VARCHAR(255),
+    @UserId INT OUTPUT,         -- Returns the new user's ID or -1 if email exists
+    @Result INT OUTPUT          -- 1 = Success, -1 = Email Exists, 0 = Error
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Check if email already exists
+    IF EXISTS (SELECT 1 FROM Users WHERE email = @Email)
+    BEGIN
+        SET @UserId = -1;
+        SET @Result = -1; -- Email already exists
+        RETURN;
+    END
+
+    -- Insert new user with default role 'User'
+    INSERT INTO Users (name, email, password_hash, role, created_at)
+    VALUES (@Name, @Email, @PasswordHash, 'User', GETDATE());
+
+    -- Return the new user's ID
+    SET @UserId = SCOPE_IDENTITY();
+    SET @Result = 1; -- Success
+END
+
+
+  DECLARE @NewUserId INT;
+DECLARE @Result INT;
+
+EXEC sp_RegisterUser
+    @Name = 'Alice Example',
+    @Email = 'alice@example.com',
+    @PasswordHash = 'hashed_password_here',
+    @UserId = @NewUserId OUTPUT,
+    @Result = @Result OUTPUT;
+
+SELECT @NewUserId AS UserId, @Result AS Result;

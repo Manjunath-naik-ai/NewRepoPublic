@@ -1,10 +1,12 @@
-﻿namespace LearnZoneConsoleApp
+﻿
+using LearnZoneDAL;
+namespace LearnZoneConsoleApp
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            LearnMoreRepositary learnMoreRepositary = new LearnMoreRepositary();
         }
     }
 }
