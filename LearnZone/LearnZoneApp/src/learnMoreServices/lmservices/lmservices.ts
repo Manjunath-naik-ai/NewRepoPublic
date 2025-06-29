@@ -20,7 +20,7 @@ export class Lmservices {
   }
 
   Register(name: string, email: string, passwordHash: string): Observable<number> {
-    const apiUrl = 'https://localhost:7158/api/LearnMoreServices/register'; // Update with your backend URL if needed
+    const apiUrl = 'https://localhost:7158/api/LearnMoreServices/register';
     const params = new HttpParams()
       .set('name', name)
       .set('email', email)
@@ -28,5 +28,6 @@ export class Lmservices {
 
     return this.http.post<number>(apiUrl, null, { params });
   }
+
 
 }
