@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LearnZoneApp": {
+    "LearnMoreApp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -36,12 +36,7 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -71,10 +66,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "LearnZoneApp:build:production"
+              "buildTarget": "LearnMoreApp:build:production"
             },
             "development": {
-              "buildTarget": "LearnZoneApp:build:development"
+              "buildTarget": "LearnMoreApp:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -1,0 +1,42 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class Lzservice {
+
+  constructor(private http:HttpClient) { }
+  Login(username: string, password: string): Observable<any> {
+    const params = new HttpParams()
+      .set('username', username)
+      .set('password', password);
+
+    return this.http.get('https://jsonplaceholder.typicode.com/posts', { params }).pipe(catchError(this.handleError)
+      );
+
+
+  }
+
+
+
+  Register(name: string, email: string, passwordHash: string): Observable<any> {
+    const params = new HttpParams()
+      .set('name', name)
+      .set('email', email)
+      .set('passwordHash', passwordHash);
+
+    // Replace with your real API endpoint
+    return this.http.post('https://localhost:7158/api/LearnMoreServices/register', null, { params })
+      .pipe(catchError(this.handleError));
+  }
+
+   handleError(error: any): Observable<never> {
+    // Handle the error here, e.g., log it or show a message
+    console.error('An error occurred:', error);
+    throw error; // Rethrow the error for further handling
+  }
+}

@@ -26,6 +26,16 @@ namespace LearnMore_Services
 
             var app = builder.Build();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200") // <-- Your Angular app URL
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
