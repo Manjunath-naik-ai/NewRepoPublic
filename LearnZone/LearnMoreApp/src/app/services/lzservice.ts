@@ -14,7 +14,7 @@ export class Lzservice {
     const params = new HttpParams()
       .set('username', username)
       .set('password', password);
-
+    console.log('Login called with params:', params.toString());
     return this.http.get('https://localhost:7158/api/LearnMoreServices/Login', { params }).pipe(catchError(this.handleError)
       );
 

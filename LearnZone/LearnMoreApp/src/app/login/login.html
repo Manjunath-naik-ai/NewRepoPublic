@@ -1,30 +1,37 @@
-<form #loginForm="ngForm" (ngSubmit)="SubmitLogin(loginForm)">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text"
-           id="username"
-           name="username"
-           ngModel
-           required
-           #username="ngModel" />
-    <div *ngIf="username.invalid && username.touched" style="color: red;">
-      Username is required.
-    </div>
-  </div>
+<div class="login-container">
+  <div class="login-card">
+    <div class="form-title">Login</div>
+    <form #loginForm="ngForm" (ngSubmit)="SubmitLogin(loginForm)">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text"
+               id="username"
+               name="username"
+               ngModel
+               required
+               class="form-control"
+               #username="ngModel" />
+        <div *ngIf="username.invalid && username.touched" class="invalid-feedback d-block">
+          Username is required.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password"
+               id="password"
+               name="password"
+               ngModel
+               required
+               minlength="6"
+               class="form-control"
+               #password="ngModel" />
+        <div *ngIf="password.invalid && password.touched" class="invalid-feedback d-block">
+          Password is required (min 6 characters).
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
 
-  <div>
-    <label for="password">Password:</label>
-    <input type="password"
-           id="password"
-           name="password"
-           ngModel
-           required
-           minlength="6"
-           #password="ngModel" />
-    <div *ngIf="password.invalid && password.touched" style="color: red;">
-      Password is required (min 6 characters).
-    </div>
+    </form>
+    <button type="button" class="btn btn-primary w-100">Register</button>
   </div>
-
-  <button type="submit" [disabled]="loginForm.invalid">Login</button>
-</form>
+</div>
