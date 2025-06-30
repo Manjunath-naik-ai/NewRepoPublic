@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Lzservice } from '../services/lzservice';
-import { NgForm } from '@angular/forms';
+import { NgForm} from '@angular/forms';
 
 
 @Component({

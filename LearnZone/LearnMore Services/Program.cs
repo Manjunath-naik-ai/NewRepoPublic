@@ -9,7 +9,16 @@ namespace LearnMore_Services
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
             // Add services to the container.
             builder.Services.AddDbContext<LearnZoneContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionStringName")));
@@ -26,15 +35,6 @@ namespace LearnMore_Services
 
             var app = builder.Build();
 
-            builder.Services.AddCors(options =>
-            {
-                options.AddDefaultPolicy(policy =>
-                {
-                    policy.WithOrigins("http://localhost:4200") // <-- Your Angular app URL
-                          .AllowAnyHeader()
-                          .AllowAnyMethod();
-                });
-            });
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

@@ -15,7 +15,7 @@ export class Lzservice {
       .set('username', username)
       .set('password', password);
 
-    return this.http.get('https://jsonplaceholder.typicode.com/posts', { params }).pipe(catchError(this.handleError)
+    return this.http.get('https://localhost:7158/api/LearnMoreServices/Login', { params }).pipe(catchError(this.handleError)
       );
 
 

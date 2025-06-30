@@ -6,7 +6,13 @@ import { App } from './app';
 import { Login } from './login/login';
 import { Register } from './register/register';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const routes: Routes = [
+  { path: 'login', component: Login }, 
+];
 
 @NgModule({
   declarations: [
