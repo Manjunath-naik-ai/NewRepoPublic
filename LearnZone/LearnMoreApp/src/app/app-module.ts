@@ -8,6 +8,8 @@ import { Register } from './register/register';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { Welcome } from './welcome/welcome';
+
 
 
 const routes: Routes = [
@@ -18,13 +20,15 @@ const routes: Routes = [
   declarations: [
     App,
     Login,
-    Register
+    Register,
+    Welcome
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-   FormsModule
+    FormsModule,
+   AppRoutingModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

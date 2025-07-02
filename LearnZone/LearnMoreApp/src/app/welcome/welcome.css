@@ -1,0 +1,22 @@
+.entry-container {
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.btn-group .btn {
+  margin: 0 10px;
+  min-width: 120px;
+  font-size: 1.1rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+}

@@ -1,4 +1,4 @@
-/* login.css */
+  /* login.css */
 
 /* Use Bootstrap utility classes for layout and spacing */
 .login-container {
@@ -6,12 +6,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background:white;
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  
 }
 
 .login-card {
-  background:black;
-  color: #fff;
+  background:linear-gradient(135deg, #e3f2fd, #fce4ec);;
+  color: ;
   border-radius: 1rem;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
   padding: 2.5rem 2rem;
@@ -20,7 +21,7 @@
 }
 
   .login-card .form-label {
-    color: #bbb;
+    color: ;
   }
 
   .login-card .form-control {
@@ -52,7 +53,7 @@
 
   .login-card .form-text,
   .login-card .invalid-feedback {
-    color: #ff7675;
+    color: blue;
   }
 
   .login-card .form-title {
