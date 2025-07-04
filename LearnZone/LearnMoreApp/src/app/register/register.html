@@ -1,24 +1,57 @@
-<form #registerForm="ngForm" (ngSubmit)="SubmitRegister(registerForm)">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" ngModel required #name="ngModel" />
-    <div *ngIf="name.invalid && name.touched" style="color: red;">
-      Name is required.
-    </div>
+<div class="register-container">
+  <div class="register-card">
+    <div class="form-title">Register</div>
+
+    <form #registerForm="ngForm" (ngSubmit)="SubmitRegister(registerForm)">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text"
+               id="name"
+               name="name"
+               ngModel
+               required
+               class="form-control"
+               #name="ngModel" />
+        <div *ngIf="name.invalid && name.touched" class="invalid-feedback d-block">
+          Name is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email"
+               id="email"
+               name="email"
+               ngModel
+               required
+               class="form-control"
+               #email="ngModel" />
+        <div *ngIf="email.invalid && email.touched" class="invalid-feedback d-block">
+          Email is required.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password"
+               id="password"
+               name="password"
+               ngModel
+               required
+               minlength="6"
+               class="form-control"
+               #password="ngModel" />
+        <div *ngIf="password.invalid && password.touched" class="invalid-feedback d-block">
+          Password is required (min 6 characters).
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Register</button>
+    </form>
+
+    <h6    class="mt-3 text-center">Already have an account?</h6>
+
+    
+    <button   routerLink="/login"  class="btn btn-outline-secondary w-100">Login Here</button>
   </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" ngModel required #email="ngModel" />
-    <div *ngIf="email.invalid && email.touched" style="color: red;">
-      Email is required.
-    </div>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" ngModel required minlength="6" #password="ngModel" />
-    <div *ngIf="password.invalid && password.touched" style="color: red;">
-      Password is required (min 6 characters).
-    </div>
-  </div>
-  <button type="submit" [disabled]="registerForm.invalid">Register</button>
-</form>
+</div>

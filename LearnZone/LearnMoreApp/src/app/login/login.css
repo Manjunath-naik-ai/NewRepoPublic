@@ -1,65 +1,69 @@
-  /* login.css */
-
-/* Use Bootstrap utility classes for layout and spacing */
+/* Consistent with Welcome Page gradient */
 .login-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #e3f2fd, #fce4ec);
-  
+  padding: 2rem;
 }
 
+/* Card styling */
 .login-card {
-  background:linear-gradient(135deg, #e3f2fd, #fce4ec);;
-  color: ;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
   border-radius: 1rem;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
   padding: 2.5rem 2rem;
   width: 100%;
   max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
-  .login-card .form-label {
-    color: ;
-  }
+/* Title */
+.form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffffff;
+}
 
-  .login-card .form-control {
-    background: #181818;
+.brand {
+  color: #4fc3f7;
+}
+
+/* Input fields */
+.form-control {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 0.5rem;
+}
+
+  .form-control:focus {
+    background-color: #333;
     color: #fff;
-    border: 1px solid #333;
-    border-radius: 0.5rem;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
   }
 
-    .login-card .form-control:focus {
-      background: #222;
-      color: #fff;
-      border-color: #0d6efd;
-      box-shadow: 0 0 0 0.2rem rgba(13,110,253,.25);
-    }
+/* Button styling */
+.btn-primary {
+  background: linear-gradient(to right, #0d6efd, #6610f2);
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
 
-  .login-card .btn-primary {
-    background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: background 0.3s;
+  .btn-primary:hover {
+    background: linear-gradient(to right, #6610f2, #0d6efd);
   }
 
-    .login-card .btn-primary:hover {
-      background: linear-gradient(90deg, #6610f2 0%, #0d6efd 100%);
-    }
-
-  .login-card .form-text,
-  .login-card .invalid-feedback {
-    color: blue;
-  }
-
-  .login-card .form-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #fff;
-  }
+/* Error text */
+.invalid-feedback {
+  color: #f8d7da;
+  font-size: 0.875rem;
+}

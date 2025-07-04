@@ -1,0 +1,37 @@
+<!-- STUDENT MENU -->
+<ul *ngIf="role === 'student'" class="dropdown-menu dropdown-menu-end text-small shadow">
+  <li><a class="dropdown-item" href="#">My Profile</a></li>
+  <li><a class="dropdown-item" href="#">Edit My Profile</a></li>
+  <li><a class="dropdown-item" href="#">My Learning</a></li>
+  <li><a class="dropdown-item" href="#">Rating</a></li>
+  <li><hr class="dropdown-divider" /></li>
+  <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+</ul>
+
+<!-- INSTRUCTOR MENU -->
+<ul *ngIf="role === 'instructor'" class="dropdown-menu dropdown-menu-end text-small shadow">
+  <li><a class="dropdown-item" href="#">My Profile</a></li>
+  <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+  <li><a class="dropdown-item" href="#">Add New Course</a></li>
+  <li><a class="dropdown-item" href="#">Update Course</a></li>
+  <li><a class="dropdown-item" href="#">Delete Course</a></li>
+  <li><a class="dropdown-item" href="#">Add New Chapter</a></li>
+  <li><a class="dropdown-item" href="#">Delete Chapter</a></li>
+  <li><hr class="dropdown-divider" /></li>
+  <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+</ul>
+
+<!-- ADMIN MENU -->
+<ul *ngIf="role === 'admin'" class="dropdown-menu dropdown-menu-end text-small shadow">
+  <li><a class="dropdown-item" href="#">My Profile</a></li>
+  <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+  <li><a class="dropdown-item" href="#">View Instructors</a></li>
+  <li><a class="dropdown-item" href="#">View Users</a></li>
+  <li><a class="dropdown-item" href="#">Add New Course</a></li>
+  <li><a class="dropdown-item" href="#">Update Course</a></li>
+  <li><a class="dropdown-item" href="#">Delete Course</a></li>
+  <li><a class="dropdown-item" href="#">Add New Chapter</a></li>
+  <li><a class="dropdown-item" href="#">Delete Chapter</a></li>
+  <li><hr class="dropdown-divider" /></li>
+  <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+</ul>

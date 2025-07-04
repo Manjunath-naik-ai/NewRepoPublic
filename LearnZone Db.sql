@@ -48,6 +48,9 @@ CREATE TABLE Users (
     created_at DATETIME DEFAULT GETDATE()
 );
 
+INSERT INTO Users (name, email, password_hash, role)
+VALUES ('John Instructor', 'john.instructor@example.com', 'hashed_password_123', 'instructor');
+
 -- 3. Courses Table
 CREATE TABLE Courses (
     course_id INT IDENTITY(1,1) PRIMARY KEY,
@@ -120,3 +123,44 @@ CREATE TABLE Feedback (
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
+
+--Login Stored Procedure
+
+Go
+
+CREATE PROCEDURE sp_LoginUserByRole
+    @Email VARCHAR(100),
+    @PasswordHash VARCHAR(255),
+    @LoginResult INT OUTPUT  -- Output parameter to return status
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Role VARCHAR(20);
+
+    -- Try to find the user and get the role
+    SELECT TOP 1 @Role = role
+    FROM Users
+    WHERE email = @Email AND password_hash = @PasswordHash;
+
+    IF @Role IS NOT NULL
+    BEGIN
+        -- Return full user details (optional)
+        SELECT user_id, name, email, role, created_at
+        FROM Users
+        WHERE email = @Email;
+
+        -- Set the output based on role
+        IF @Role = 'Admin'
+            SET @LoginResult = 1;
+
+            ELSE IF @Role = 'Instructor'
+            SET @LoginResult = 0;
+        ELSE
+            SET @LoginResult = 2;
+    END
+    ELSE
+    BEGIN
+        SET @LoginResult = -1;  -- Invalid credentials
+    END
+END

@@ -1,0 +1,60 @@
+/* Consistent with Welcome Page gradient */
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  padding: 2rem;
+}
+
+/* Card styling */
+.register-card {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+  .register-card .form-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: aliceblue;
+  }
+
+  .register-card .form-control {
+    background: #181818;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+  }
+
+    .register-card .form-control:focus {
+      background: #222;
+      color: #fff;
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+  .register-card .btn-primary {
+    background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+  }
+
+    .register-card .btn-primary:hover {
+      background: linear-gradient(90deg, #6610f2 0%, #0d6efd 100%);
+    }
+
+  .register-card .btn-outline-secondary {
+    border-radius: 0.5rem;
+    font-weight: 500;
+  }

@@ -9,19 +9,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { Welcome } from './welcome/welcome';
+import { LoginDashBoard } from './login-dash-board/login-dash-board';
 
 
 
-const routes: Routes = [
-  { path: 'login', component: Login }, 
-];
 
 @NgModule({
   declarations: [
     App,
     Login,
     Register,
-    Welcome
+    Welcome,
+    LoginDashBoard
   ],
   imports: [
     BrowserModule,
