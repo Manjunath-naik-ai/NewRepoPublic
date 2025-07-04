@@ -86,5 +86,166 @@ namespace LearnZoneDAL
         }
         #endregion
 
+        #region ViewCourse
+        public List<Course> viewAllCoourse()
+        {
+            List<Course> course = new List<Course>();
+            try
+            {
+                 course = (from c in context.Courses
+                               select c).ToList();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                course = null;
+            }
+            return course;
+        }
+        #endregion
+
+        #region changepassword
+        public bool ChangePassword(int userId, string newPassword)
+        {
+            bool isChanged = false;
+            try
+            {
+                var prmUserId = new SqlParameter("@UserId", userId);
+                var prmNewPassword = new SqlParameter("@NewPassword", newPassword);
+                var prmResult = new SqlParameter("@Result", System.Data.SqlDbType.Bit)
+                {
+                    Direction = System.Data.ParameterDirection.Output
+                };
+                context.Database.ExecuteSqlRaw(
+                    "EXEC sp_ChangePassword @UserId, @NewPassword, @Result OUTPUT",
+                    prmUserId, prmNewPassword, prmResult);
+                isChanged = Convert.ToBoolean(prmResult.Value);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                isChanged = false;
+            }
+            return isChanged;
+        }
+        #endregion
+
+        #region Enrollment
+        public bool EnrollUser(int userId, int courseId)
+    {
+        try
+        {
+            // Optional: Check if user and course exist
+            var userExists = context.Users.Any(u => u.UserId == userId);
+        var courseExists = context.Courses.Any(c => c.CourseId == courseId);
+
+            if (!userExists || !courseExists)
+                return false;
+
+            var enrollment = new Enrollment
+            {
+                UserId = userId,
+                CourseId = courseId,
+                EnrolledAt = DateTime.Now,
+                Progress = 0
+            };
+
+                context.Enrollments.Add(enrollment);
+                context.SaveChanges();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error enrolling user: " + ex.Message);
+            return false;
+        }
+    }
+
+        #endregion
+
+        #region view Allchapters
+        public List<Chapter> GetChaptersByCourseId(int courseId)
+        {
+            List<Chapter> ch = new List<Chapter>();
+            try
+            {
+
+                ch= context.Chapters
+                    .Where(c => c.CourseId == courseId)
+                    .OrderBy(c => c.Order)
+                    .ToList();
+            }
+            catch(Exception ex)
+            {
+                ch = null;
+                Console.WriteLine("Error retrieving chapters: " + ex.Message);
+              
+            }
+            return ch;
+        }
+
+        #endregion
+
+        #region editUserProfile
+        public bool EditUserProfile(User dto)
+        {
+            try
+            {
+                var user = context.Users.FirstOrDefault(u => u.UserId == dto.UserId);
+                if (user == null)
+                    return false;
+
+                user.Name = dto.Name;
+                user.Email = dto.Email;
+
+                context.Users.Update(user);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating user: " + ex.Message);
+                return false;
+            }
+        }
+
+
+        #endregion
+
+        #region  Feedback
+        public bool SubmitFeedback(Feedback dto)
+        {
+            try
+            {
+                // Optionally check if user and course exist
+                var userExists = context.Users.Any(u => u.UserId == dto.UserId);
+                var courseExists = context.Courses.Any(c => c.CourseId == dto.CourseId);
+
+                if (!userExists || !courseExists)
+                    return false;
+
+                var feedback = new Feedback
+                {
+                    UserId = dto.UserId,
+                    CourseId = dto.CourseId,
+                    Rating = dto.Rating,
+                    Comment = dto.Comment,
+                    CreatedAt = DateTime.Now
+                };
+
+                context.Feedbacks.Add(feedback);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error saving feedback: " + ex.Message);
+                return false;
+            }
+        }
+
+        #endregion
+
+
     }
 }

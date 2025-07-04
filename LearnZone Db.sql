@@ -164,3 +164,29 @@ BEGIN
         SET @LoginResult = -1;  -- Invalid credentials
     END
 END
+
+GO
+--Change password
+
+CREATE PROCEDURE sp_ChangePassword
+    @UserId INT,
+    @NewPassword VARCHAR(255),
+    @Result BIT OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Check if user exists
+    IF EXISTS (SELECT 1 FROM Users WHERE user_id = @UserId)
+    BEGIN
+        UPDATE Users
+        SET password_hash = @NewPassword
+        WHERE user_id = @UserId;
+
+        SET @Result = 1; -- Success
+    END
+    ELSE
+    BEGIN
+        SET @Result = 0; -- User not found
+    END
+END;
