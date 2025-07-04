@@ -45,8 +45,9 @@ namespace LearnMore_Services
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseCors("AllowAllOrigins"); 
 
+            app.UseAuthorization();
 
             app.MapControllers();
 

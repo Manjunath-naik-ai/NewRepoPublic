@@ -1,0 +1,24 @@
+<form #registerForm="ngForm" (ngSubmit)="SubmitRegister(registerForm)">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" ngModel required #name="ngModel" />
+    <div *ngIf="name.invalid && name.touched" style="color: red;">
+      Name is required.
+    </div>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" ngModel required #email="ngModel" />
+    <div *ngIf="email.invalid && email.touched" style="color: red;">
+      Email is required.
+    </div>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" ngModel required minlength="6" #password="ngModel" />
+    <div *ngIf="password.invalid && password.touched" style="color: red;">
+      Password is required (min 6 characters).
+    </div>
+  </div>
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+</form>
