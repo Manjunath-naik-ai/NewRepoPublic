@@ -9,7 +9,8 @@ import { Welcome } from './app/welcome/welcome';
 const routes: Routes = [
   { path: '', component: Welcome },
   { path: 'login', component: Login },
-  { path: 'register', component: Register }
+  { path: 'register', component: Register },
+  { path: 'welcome', component: Welcome }
 ];
 
 @NgModule({

@@ -1,37 +1,30 @@
-/* Header */
-.dashboard-header {
-  background-color: #2f3640;
+.dashboard-card {
+  background: linear-gradient(to bottom right, #6f42c1, #b98af9);
   color: white;
-  padding: 15px 30px;
+  text-align: center;
+  padding: 30px 15px;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  height: 160px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
 }
 
-/* Title */
-.dashboard-title {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-/* Profile image */
-.profile-img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-/* Dropdown */
-.dropdown-menu a {
-  font-size: 14px;
-}
-
-  .dropdown-menu a:hover {
-    background-color: #f1f1f1;
+  .dashboard-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 
-.dropdown-divider {
-  margin: 5px 0;
+.icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.profile-card {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-left: 6px solid #6f42c1;
+  border-radius: 12px;
 }

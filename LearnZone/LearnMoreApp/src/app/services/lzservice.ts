@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Iuser } from '../Interfaces/Iuser';
+
 
 
 @Injectable({
@@ -9,13 +11,15 @@ import { catchError } from 'rxjs/operators';
 })
 export class Lzservice {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
+
+
   Login(username: string, password: string): Observable<any> {
     const params = new HttpParams()
       .set('username', username)
       .set('password', password);
     console.log('Login called with params:', params.toString());
-    return this.http.get('https://localhost:7158/api/LearnMoreServices/Login', { params }).pipe(catchError(this.handleError)
+    return this.http.get<Iuser>('https://localhost:7158/api/LearnMoreServices/Login', { params }).pipe(catchError(this.handleError)
       );
 
 

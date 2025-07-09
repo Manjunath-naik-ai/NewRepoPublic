@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './login-dash-board.css'
 })
 export class LoginDashBoard {
-  [x: string]: any;
-  role = this['Sessionstorage'].getItem('role'); 
+ 
 }

@@ -1,37 +1,72 @@
-<!-- STUDENT MENU -->
-<ul *ngIf="role === 'student'" class="dropdown-menu dropdown-menu-end text-small shadow">
-  <li><a class="dropdown-item" href="#">My Profile</a></li>
-  <li><a class="dropdown-item" href="#">Edit My Profile</a></li>
-  <li><a class="dropdown-item" href="#">My Learning</a></li>
-  <li><a class="dropdown-item" href="#">Rating</a></li>
-  <li><hr class="dropdown-divider" /></li>
-  <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-</ul>
 
-<!-- INSTRUCTOR MENU -->
-<ul *ngIf="role === 'instructor'" class="dropdown-menu dropdown-menu-end text-small shadow">
-  <li><a class="dropdown-item" href="#">My Profile</a></li>
-  <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-  <li><a class="dropdown-item" href="#">Add New Course</a></li>
-  <li><a class="dropdown-item" href="#">Update Course</a></li>
-  <li><a class="dropdown-item" href="#">Delete Course</a></li>
-  <li><a class="dropdown-item" href="#">Add New Chapter</a></li>
-  <li><a class="dropdown-item" href="#">Delete Chapter</a></li>
-  <li><hr class="dropdown-divider" /></li>
-  <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-</ul>
+<app-navbar></app-navbar>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">👋 Welcome, Admin</h2>
 
-<!-- ADMIN MENU -->
-<ul *ngIf="role === 'admin'" class="dropdown-menu dropdown-menu-end text-small shadow">
-  <li><a class="dropdown-item" href="#">My Profile</a></li>
-  <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-  <li><a class="dropdown-item" href="#">View Instructors</a></li>
-  <li><a class="dropdown-item" href="#">View Users</a></li>
-  <li><a class="dropdown-item" href="#">Add New Course</a></li>
-  <li><a class="dropdown-item" href="#">Update Course</a></li>
-  <li><a class="dropdown-item" href="#">Delete Course</a></li>
-  <li><a class="dropdown-item" href="#">Add New Chapter</a></li>
-  <li><a class="dropdown-item" href="#">Delete Chapter</a></li>
-  <li><hr class="dropdown-divider" /></li>
-  <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-</ul>
+  <div class="row g-4 justify-content-center">
+    <!-- View All Courses -->
+    <div class="col-md-3">
+      <div class="dashboard-card">
+        <i class="bi bi-journal-bookmark icon"></i>
+        <h5>View All Courses</h5>
+      </div>
+    </div>
+
+    <!-- View All Users -->
+    <div class="col-md-3">
+      <div class="dashboard-card">
+        <i class="bi bi-people icon"></i>
+        <h5>View All Users</h5>
+      </div>
+    </div>
+
+    <!-- View All Instructors -->
+    <div class="col-md-3">
+      <div class="dashboard-card">
+        <i class="bi bi-person-video2 icon"></i>
+        <h5>View All Instructors</h5>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="dashboard-card">
+        <i class="bi bi-person-video2 icon"></i>
+        <h5>View All Feebacks</h5>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="dashboard-card">
+        <i class="bi bi-person-video2 icon"></i>
+        <h5>View All Feebacks</h5>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="dashboard-card">
+        <i class="bi bi-person-video2 icon"></i>
+        <h5>View All Feebacks</h5>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-3">
+      <div class="dashboard-card">
+        <i class="bi bi-person-video2 icon"></i>
+        <h5>Number Of Enrolments</h5>
+      </div>
+    </div>
+
+    <!-- My Profile -->
+    <div class="col-md-9">
+      <div class="profile-card p-4">
+        <h4 class="mb-3">👤 My Profile</h4>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>User ID:</strong> 101</p>
+        <p><strong>Role:</strong> Admin</p>
+        <p><strong>Email:</strong> johndoe&#64;example.com</p>
+      </div>
+    </div>
+  </div>
+</div>

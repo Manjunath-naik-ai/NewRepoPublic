@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { Welcome } from './welcome/welcome';
 import { LoginDashBoard } from './login-dash-board/login-dash-board';
+import { Navbar } from './navbar/navbar';
+import { User } from './user/user';
+import { InstructorLoginPage } from './instructor-login-page/instructor-login-page';
+import { UserLoginPage } from './user-login-page/user-login-page';
 
 
 
@@ -20,7 +24,11 @@ import { LoginDashBoard } from './login-dash-board/login-dash-board';
     Login,
     Register,
     Welcome,
-    LoginDashBoard
+    LoginDashBoard,
+    Navbar,
+    User,
+    InstructorLoginPage,
+    UserLoginPage
   ],
   imports: [
     BrowserModule,

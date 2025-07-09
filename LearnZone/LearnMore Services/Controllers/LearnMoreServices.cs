@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LearnZoneDAL;
 using System.Runtime.CompilerServices;
+using LearnZoneDAL.Interfaces;
 
 namespace LearnMore_Services.Controllers
 {
@@ -19,19 +20,19 @@ namespace LearnMore_Services.Controllers
         }
         #region  login
         [HttpGet("Login")]
-        public int Login(String username , string password)
+        public Iuser Login(String username , string password)
         {
-            int res = 0;
+              Iuser iuser = null;
             try
             {
 
-                res = repositary.Login(username, password);
+                iuser= repositary.Login(username, password);
             }
             catch(Exception e)
             {
-                res = -1;
+                iuser = null;
             }
-            return (res);
+            return (iuser);
         }
         #endregion
 

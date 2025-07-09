@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LearnZoneDAL.Interfaces;
 using LearnZoneDAL.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -19,31 +21,40 @@ namespace LearnZoneDAL
 
         }
         #region  Login Method
-        public int Login(string username, string password)
+        public Iuser Login(string username, string password)
         {
-            var res = 0;
+            Iuser  user = null;
             try
             {
-                SqlParameter prmusername = new SqlParameter("@username", username);
-                SqlParameter prmpassword = new SqlParameter("@password", password);
-                SqlParameter prmLoginResult = new SqlParameter("@LoginResult", System.Data.SqlDbType.Int)
+                var result = context.Users
+                    .FirstOrDefault(u => u.Email == username && u.PasswordHash == password);
+
+                if (result != null)
                 {
-                    Direction = System.Data.ParameterDirection.Output
-                };
-
-                context.Database.ExecuteSqlRaw(
-                    "EXEC sp_LoginUserByRole @username, @password, @LoginResult OUTPUT",
-                    prmusername, prmpassword, prmLoginResult);
-
-                res = Convert.ToInt32(prmLoginResult.Value);
+                    user = new Iuser
+                    {
+                        Id = result.UserId,
+                        Name = result.Name,
+                        Email = result.Email,
+                        Role = result.Role
+                    };
+                }
             }
             catch (Exception e)
             {
-                res = 0;
                 Console.WriteLine(e.Message);
+                user = new Iuser
+                {
+                    Id = 0,
+                    Name = null,
+                    Email = "",
+                    Role = ""
+                };
             }
-            return res;
+
+                return user;
         }
+
         #endregion
 
         #region Register

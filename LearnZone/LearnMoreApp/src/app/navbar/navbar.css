@@ -1,0 +1,12 @@
+.navbar-brand {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-link {
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+  .nav-link:hover {
+    text-decoration: underline;
+  }
