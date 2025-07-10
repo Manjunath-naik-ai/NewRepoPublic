@@ -14,6 +14,13 @@ import { Navbar } from './navbar/navbar';
 import { User } from './user/user';
 import { InstructorLoginPage } from './instructor-login-page/instructor-login-page';
 import { UserLoginPage } from './user-login-page/user-login-page';
+import { ViewCourse } from './view-course/view-course';
+import { ViewAllUser } from './view-all-user/view-all-user';
+import { ViewInstructor } from './view-instructor/view-instructor';
+import { AllFeedBack } from './all-feed-back/all-feed-back';
+import { AddCourse } from './add-course/add-course';
+import { NumberOfElements } from './number-of-elements/number-of-elements';
+import { ViewProfile } from './view-profile/view-profile';
 
 
 
@@ -28,7 +35,14 @@ import { UserLoginPage } from './user-login-page/user-login-page';
     Navbar,
     User,
     InstructorLoginPage,
-    UserLoginPage
+    UserLoginPage,
+    ViewCourse,
+    ViewAllUser,
+    ViewInstructor,
+    AllFeedBack,
+    AddCourse,
+    NumberOfElements,
+    ViewProfile
   ],
   imports: [
     BrowserModule,
