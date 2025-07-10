@@ -1,17 +1,21 @@
 .dashboard-card {
   background: linear-gradient(to bottom right, #6f42c1, #b98af9);
-  color: white;
+  color: black;
   text-align: center;
   padding: 30px 15px;
   border-radius: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s;
-  height: 160px;
+  height: 100px;
+  width:200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
-}
 
+}
+.body {
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+}
   .dashboard-card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
