@@ -257,6 +257,112 @@ namespace LearnZoneDAL
 
         #endregion
 
+        #region  viewAllUser
+        public List<User> GetAllUsers()
+        {
+            List<User> users = new List<User>();
+            try
+            {
+               users = context.Users
+                    .Where(u => u.Role == "User")
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving users: " + ex.Message);
+                users = null;
+            }
+            return users;
+        }
+
+
+        #endregion
+
+        #region  viewAllinstructor
+
+        public List<User> GetAllInstructors()
+        {
+            List<User> users = new List<User>();
+            try
+            {
+                users = context.Users
+                     .Where(u => u.Role == "instructor")
+                     .ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving users: " + ex.Message);
+                users = null;
+            }
+            return users;
+        }
+
+        #endregion
+
+        #region ViewAllFeedBacks
+        public List<Feedback> ViewAllFeedback()
+        {
+            List<Feedback> feedbacks = new List<Feedback>();
+            try
+            {
+                feedbacks = context.Feedbacks
+                    .Include(f => f.User)
+                    .Include(f => f.Course)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving feedbacks: " + ex.Message);
+                feedbacks = null;
+            }
+            return feedbacks;
+        }
+
+        #endregion'
+
+        #region NumberOfEnrollments
+
+        public int GetEnrollmentCount(int courseId)
+        {
+            try
+            {
+                return context.Enrollments.Count(e => e.CourseId == courseId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving enrollment count: " + ex.Message);
+                return 0;
+            }
+        }
+        #endregion
+
+        #region
+        public int AddCourse(string title, string? description, int? instructorId, string? status = "pending")
+        {
+            try
+            {
+                var course = new Course
+                {
+                    Title = title,
+                    Description = description,
+                    InstructorId = instructorId,
+                    Status = status,
+                    CreatedAt = DateTime.Now
+                };
+
+                context.Courses.Add(course);
+                context.SaveChanges();
+                return course.CourseId;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error adding course: " + ex.Message);
+                return 0;
+            }
+        }
+
+
+        #endregion
 
     }
 }

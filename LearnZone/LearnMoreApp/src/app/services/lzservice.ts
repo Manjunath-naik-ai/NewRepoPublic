@@ -38,9 +38,57 @@ export class Lzservice {
       .pipe(catchError(this.handleError));
   }
 
+  //viewAllCourse
+  viewAllCourse(): Observable<any> {
+    return this.http.get('https://localhost:7158/api/LearnMoreServices/viewAllCourse')
+      .pipe(catchError(this.handleError));
+  }
+
+  //viewAllUser
+  viewAllUser(): Observable<any> {
+    return this.http.get('https://localhost:7158/api/LearnMoreServices/viewAllUser')
+      .pipe(catchError(this.handleError));
+  }
+
+  //View AllInstructor
+  viewAllInstructor(): Observable<any> {
+    return this.http.get('https://localhost:7158/api/LearnMoreServices/viewAllInstructor')
+      .pipe(catchError(this.handleError));
+
+  }
+
+  //Allfeedbacks
+  viewAllFeedback(): Observable<any> {
+    return this.http.get('https://localhost:7158/api/LearnMoreServices/viewAllFeedback')
+      .pipe(catchError(this.handleError));
+  }
+
+  //NumberOfEnrollments
+  numberOfEnrollments(): Observable<any> {
+    return this.http.get('https://localhost:7158/api/LearnMoreServices/numberOfEnrollments')
+      .pipe(catchError(this.handleError));
+
+  }
+
+  //AddCourse
+  addCourse(courseName: string, courseDescription: string, coursePrice: number, courseImage: string): Observable<any> {
+    const params = new HttpParams()
+      .set('courseName', courseName)
+      .set('courseDescription', courseDescription)
+      .set('coursePrice', coursePrice.toString())
+      .set('courseImage', courseImage);
+    return this.http.post('https://localhost:7158/api/LearnMoreServices/addCourse', null, { params })
+      .pipe(catchError(this.handleError));
+  }
+
+
+
+
    handleError(error: any): Observable<never> {
     // Handle the error here, e.g., log it or show a message
     console.error('An error occurred:', error);
     throw error; // Rethrow the error for further handling
+
+
   }
 }
