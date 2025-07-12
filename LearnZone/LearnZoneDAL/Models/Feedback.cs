@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace LearnZoneDAL.Models;
 
@@ -17,6 +18,7 @@ public partial class Feedback
 
     public DateTime? CreatedAt { get; set; }
 
+    [JsonIgnore]
     public virtual Course? Course { get; set; }
 
     public virtual User? User { get; set; }

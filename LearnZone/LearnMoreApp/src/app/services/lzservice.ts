@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Iuser } from '../Interfaces/Iuser';
 
 
@@ -57,11 +57,17 @@ export class Lzservice {
 
   }
 
-  //Allfeedbacks
-  viewAllFeedback(): Observable<any> {
-    return this.http.get('https://localhost:7158/api/LearnMoreServices/viewAllFeedback')
-      .pipe(catchError(this.handleError));
+  viewAllFeedback(): Observable<any[]> {
+    return this.http.get<any>('https://localhost:7158/api/LearnMoreServices/viewAllFeedback').pipe(
+      map((response) => response.$values || [])
+    );
   }
+
+  //Allfeedbacks
+  //viewAllFeedback(): Observable<any> {
+  //  return this.http.get('https://localhost:7158/api/LearnMoreServices/viewAllFeedback')
+  //    .pipe(catchError(this.handleError));
+  //}
 
   //NumberOfEnrollments
   numberOfEnrollments(): Observable<any> {

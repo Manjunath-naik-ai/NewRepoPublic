@@ -1,24 +1,24 @@
-
-<!-- Add this inside your main component or layout (e.g., app.component.html) -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
   <div class="container-fluid">
     <a class="navbar-brand fw-bold fs-4" href="#">Welcome to LearnZone</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/home">Home</a>
+          <a class="nav-link active" routerLink="/Logindashboard">Home</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/dashboard">Dashboard</a>
+          <!-- Toggle profile info display -->
+          <a class="nav-link" style="cursor:pointer;" (click)="toggleProfile()">Profile</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/profile">Profile</a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link text-warning" style="cursor:pointer;" (click)="logout()">Logout</a>
         </li>
@@ -26,3 +26,12 @@
     </div>
   </div>
 </nav>
+
+<!-- Profile Popup -->
+<div *ngIf="showProfile" class="profile-box bg-light border rounded shadow p-3">
+  <h6 class="fw-bold mb-2">User Profile</h6>
+  <p><strong>Name:</strong> {{ userDetails?.name }}</p>
+  <p><strong>Email:</strong> {{ userDetails?.email }}</p>
+  <p><strong>Role:</strong> {{ userDetails?.role }}</p>
+  <button class="btn btn-sm btn-outline-secondary mt-2" (click)="showProfile = false">Close</button>
+</div>

@@ -10,7 +10,7 @@ import { InstructorLoginPage } from './instructor-login-page/instructor-login-pa
 import { ViewCourse } from './view-course/view-course';
 import { ViewProfile } from './view-profile/view-profile';
 import { AddCourse } from './add-course/add-course';
-import { ViewAllUser } from './view-all-user/ViewAllUser';
+import { ViewAllUser } from './view-all-user/view-all-user';
 import { ViewInstructor } from './view-instructor/view-instructor';
 import { AllFeedBack } from './all-feed-back/all-feed-back';
 

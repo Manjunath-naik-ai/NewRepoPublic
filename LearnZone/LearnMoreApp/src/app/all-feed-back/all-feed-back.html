@@ -15,19 +15,20 @@
     <tbody>
       <tr *ngFor="let feedback of feedbacks; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ feedback.user_name }}</td>
-        <td>{{ feedback.course_title }}</td>
+        <td>{{ feedback.user?.name }}</td>
+        <td>{{ feedback.courseTitle || feedback.course?.title }}</td>
         <td>
           <span class="rating-stars">
             {{ feedback.rating }} / 5
           </span>
         </td>
         <td>{{ feedback.comment }}</td>
-        <td>{{ feedback.created_at | date: 'medium' }}</td>
+        <td>{{ feedback.createdAt | date: 'medium' }}</td>
         <td>
           <button class="btn btn-danger btn-sm">Delete</button>
         </td>
       </tr>
+
     </tbody>
   </table>
 </div>

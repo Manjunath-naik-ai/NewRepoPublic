@@ -15,13 +15,23 @@ export class AllFeedBack implements OnInit {
   ngOnInit(): void {
     this.loadFeedbacks();
   }
+
   feedbacks: any[] = [];
+
   errorMessage: string = '';
   constructor(private lzservice: Lzservice, private router: Router) { }
   loadFeedbacks(): void {
     this.lzservice.viewAllFeedback().subscribe({
-      next: (feedbacks: any[]) => {
-        this.feedbacks = feedbacks;
+      next: (response) => {
+        console.log('Raw response:', response);
+
+        // Check if $values exists and is an array
+        if (response && Array.isArray(response.values)) {
+          /*this.feedbacks = response.values;*/
+        } else {
+          console.error('Invalid feedback format:', response);
+          this.feedbacks = [];
+        }
       },
       error: (err) => {
         console.error('Error loading feedbacks:', err);
