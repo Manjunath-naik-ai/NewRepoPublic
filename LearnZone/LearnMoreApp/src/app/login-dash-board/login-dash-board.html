@@ -6,62 +6,74 @@
   <div class="row g-4 justify-content-center">
     <!-- View All Courses -->
     <div class="col-md-3">
-      <div class="dashboard-card">
-        <i class="bi bi-journal-bookmark icon"></i>
-        <h5>View All Courses</h5>
-      </div>
+      <a [routerLink]="['/ViewAllCourse']" class="text-decoration-none">
+        <div class="dashboard-card text-center">
+          <i class="bi bi-journal-bookmark icon"></i>
+          <h5>View All Courses</h5>
+        </div>
+      </a>
     </div>
-
+    <!-- ViewAllCourse -->
     <!-- View All Users -->
     <div class="col-md-3">
-      <div class="dashboard-card">
-        <i class="bi bi-people icon"></i>
-        <h5>View All Users</h5>
-      </div>
+      <a [routerLink]="['/viewAlluser']" class="text-decoration-none">
+        <div class="dashboard-card">
+          <i class="bi bi-people icon"></i>
+          <h5>View All Users</h5>
+        </div>
+      </a>
     </div>
 
     <!-- View All Instructors -->
     <div class="col-md-3">
-      <div class="dashboard-card">
-        <i class="bi bi-person-video2 icon"></i>
-        <h5>View All Instructors</h5>
-      </div>
+      <a [routerLink]="['/viewinstructor']" class="text-decoration-none">
+        <div class="dashboard-card">
+          <i class="bi bi-person-video2 icon"></i>
+          <h5>View All Instructors</h5>
+        </div>
+      </a>
     </div>
 
     <div class="col-md-3">
-      <div class="dashboard-card">
-        <i class="bi bi-person-video2 icon"></i>
-        <h5>View All Feebacks</h5>
-      </div>
+      <a [routerLink]="['/allFeedback']" class="text-decoration-none">
+        <div class="dashboard-card">
+          <i class="bi bi-person-video2 icon"></i>
+          <h5>View All Feebacks</h5>
+        </div>
+      </a>
     </div>
 
     <div class="col-md-3">
-      <div class="dashboard-card">
-        <i class="bi bi-person-video2 icon"></i>
-        <h5>Add Course</h5>
-      </div>
+      <a [routerLink]="['/addcourse']" class="text-decoration-none">
+        <div class="dashboard-card">
+          <i class="bi bi-person-video2 icon"></i>
+          <h5>Add Course</h5>
+        </div>
+      </a>
     </div>
 
-    
+
 
 
 
     <div class="col-md-3">
-      <div class="dashboard-card">
-        <i class="bi bi-person-video2 icon"></i>
-        <h5>Number Of Enrolments</h5>
-      </div>
+      <a [routerLink]="['/viewAlluser']" class="text-decoration-none">
+        <div class="dashboard-card">
+          <i class="bi bi-person-video2 icon"></i>
+          <h5>Number Of Enrolments</h5>
+        </div>
+      </a>
     </div>
 
     <!-- My Profile -->
     <!--<div class="col-md-9">
-      <div class="profile-card p-4">
-        <h4 class="mb-3">👤 My Profile</h4>
-        <p><strong>Name:</strong> John Doe</p>
-        <p><strong>User ID:</strong> 101</p>
-        <p><strong>Role:</strong> Admin</p>
-        <p><strong>Email:</strong> johndoe&#64;example.com</p>
-      </div>
-    </div>-->
+    <div class="profile-card p-4">
+      <h4 class="mb-3">👤 My Profile</h4>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>User ID:</strong> 101</p>
+      <p><strong>Role:</strong> Admin</p>
+      <p><strong>Email:</strong> johndoe&#64;example.com</p>
+    </div>
+  </div>-->
   </div>
 </div>

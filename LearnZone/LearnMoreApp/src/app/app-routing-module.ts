@@ -7,19 +7,46 @@ import { Welcome } from './welcome/welcome';
 import { LoginDashBoard } from './login-dash-board/login-dash-board';
 import { UserLoginPage } from './user-login-page/user-login-page';
 import { InstructorLoginPage } from './instructor-login-page/instructor-login-page';
+import { ViewCourse } from './view-course/view-course';
+import { ViewProfile } from './view-profile/view-profile';
+import { AddCourse } from './add-course/add-course';
+import { ViewAllUser } from './view-all-user/view-all-user';
+import { ViewInstructor } from './view-instructor/view-instructor';
+import { AllFeedBack } from './all-feed-back/all-feed-back';
+
+
+
+
+
+
+
 
 
 const routes: Routes = [
   { path: '', component: Welcome },
-
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'welcome', component: Welcome },
   { path: 'Logindashboard', component: LoginDashBoard },
   { path: 'userlogindashboard', component: UserLoginPage },
-  { path: 'instructorlogin', component: InstructorLoginPage }
+  { path: 'instructorlogin', component: InstructorLoginPage },
+  { path: 'ViewAllCourse', component: ViewCourse },
+  { path: 'viewprofile', component: ViewProfile },
+  { path: 'addcourse', component: AddCourse },
+  { path: 'viewAlluser', component: ViewAllUser },
+  { path: 'viewinstructor', component: ViewInstructor },
+  { path: 'allFeedback', component: AllFeedBack },
 
-];
+
+
+
+ 
+
+
+  
+
+
+];   
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
