@@ -1,1 +1,37 @@
-<p>view-instructor works!</p>
+<app-navbar></app-navbar>
+<h1 style="text-align:center">All Instructor Details </h1>
+<div class="table-responsive">
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Expertise</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let instructor of instructors; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ instructor.name }}</td>
+        <td>{{ instructor.email }}</td>
+        <td>{{ instructor.expertise }}</td>
+        <td>
+          <span [ngClass]="{
+            'status-active': instructor.status === 'active',
+            'status-inactive': instructor.status === 'inactive'
+          }">{{ instructor.status }}</span>
+        </td>
+        <td>{{ instructor.created_at | date: 'mediumDate' }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

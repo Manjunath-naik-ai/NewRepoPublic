@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewAllUser } from './view-all-user';
+import { ViewAllUser } from './ViewAllUser';
 
 describe('ViewAllUser', () => {
   let component: ViewAllUser;

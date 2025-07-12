@@ -1,0 +1,43 @@
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+  .custom-table th, .custom-table td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+
+  .custom-table thead {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .custom-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .custom-table tr:hover {
+    background-color: #e9f5ff;
+  }
+
+.status-approved {
+  color: green;
+  font-weight: bold;
+}
+
+.status-pending {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-rejected {
+  color: red;
+  font-weight: bold;
+}

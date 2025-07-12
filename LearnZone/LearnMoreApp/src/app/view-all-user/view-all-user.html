@@ -1,1 +1,31 @@
-<p>view-all-user works!</p>
+<app-navbar></app-navbar>
+
+<div class="table-responsive">
+  <h1 style="text-align:center">All User Details</h1>
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+   
+       
+        <td>
+          <button class="btn btn-danger btn-sm" >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

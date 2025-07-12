@@ -1,1 +1,40 @@
 <app-navbar></app-navbar>
+<div class="table-responsive">
+  <h1 style="text-align:center"> All Courses Details</h1>
+  <table class="custom-table">
+
+    <thead>
+
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Delete</th>
+        <th>Status</th>
+        <th>Actions</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ course.title }}</td>
+        <td>{{ course.description }}</td>
+        <td>{{ course.instructor }}</td>
+
+        <td>
+          <span [ngClass]="{
+            'status-approved': course.status === 'approved',
+            'status-pending': course.status === 'pending',
+            'status-rejected': course.status === 'rejected'
+          }">{{ course.status }}</span>
+
+        </td>
+
+        <button class="btn btn-danger btn-sm">
+          Delete
+        </button>
+      </tr>
+    </tbody>
+  </table>
+</div>

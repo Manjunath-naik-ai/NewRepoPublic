@@ -1,0 +1,55 @@
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+  .custom-table th, .custom-table td {
+    padding: 12px 15px;
+    text-align: left;
+  }
+
+  .custom-table thead {
+    background-color: #6c757d;
+    color: white;
+  }
+
+  .custom-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+
+  .custom-table tr:hover {
+    background-color: #e2f0ff;
+  }
+
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: red;
+  font-weight: bold;
+}
+
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
