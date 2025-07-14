@@ -17,6 +17,9 @@ namespace LearnMore_Services
                         builder.AllowAnyOrigin()
                                .AllowAnyMethod()
                                .AllowAnyHeader();
+
+
+
                     });
             });
             // Add services to the container.
