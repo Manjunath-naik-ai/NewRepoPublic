@@ -25,9 +25,9 @@ export class Navbar {
         const user = JSON.parse(userData);
         console.log(user);
         return {
-          name: user.name || '',
-          email: user.email || '',
-          role: user.role || '',
+          name: user.name ,
+          email: user.email,
+          role: user.role ,
         };
       } catch (e) {
         console.error('Error parsing user from sessionStorage:', e);
