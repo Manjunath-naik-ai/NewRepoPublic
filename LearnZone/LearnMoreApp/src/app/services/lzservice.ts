@@ -3,6 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Iuser } from '../Interfaces/Iuser';
+import { ICourse } from '../Interfaces/crs';
+
 
 
 
@@ -69,19 +71,27 @@ export class Lzservice {
   //    .pipe(catchError(this.handleError));
   //}
 
-  //NumberOfEnrollments
-  numberOfEnrollments(): Observable<any> {
-    return this.http.get('https://localhost:7158/api/LearnMoreServices/numberOfEnrollments')
-      .pipe(catchError(this.handleError));
 
+  numberOfEnrollments(courseId: number): Observable<any> {
+    const params = new HttpParams().set('courseId', courseId.toString());
+
+    return this.http.get('https://localhost:7158/api/LearnMoreServices/numberOfEnrollments', { params })
+      .pipe(catchError(this.handleError));
   }
 
-  ////AddCourse
-  //addCourse(courseName: string, courseDescription: string, instructorid:Number): Observable<any> {
-  //    Var course =new Icourse();
-  //  return this.http.post('https://localhost:7158/api/LearnMoreServices/addCourse', null, { params })
-  //    .pipe(catchError(this.handleError));
-  //}
+
+  //AddCourse
+  addCourse(courseName: string, courseDescription: string, instructorId: number): Observable<any> {
+    const course = {
+      title: courseName,
+      description: courseDescription,
+      instructorId: instructorId
+    };
+
+    return this.http.post('https://localhost:7158/api/LearnMoreServices/addCourse', course)
+      .pipe(catchError(this.handleError));
+  }
+
 
 
 

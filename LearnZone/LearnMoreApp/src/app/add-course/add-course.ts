@@ -13,23 +13,21 @@ export class AddCourse implements OnInit{
   ngOnInit(): void {
 
   }
+  courseName: string = '';
+  courseDescription: string = '';
+  instructorId: number = 0;
   constructor(private lzservice: Lzservice, private router: Router) { }
-  //addcourse(form: NgForm): void {
-  //  if (form.valid) {
-  //    const { courseName, courseDescription, instructorId } = form.value;
-  //    this.lzservice.addCourse(courseName, courseDescription, instructorId).subscribe({
-  //      next: (response: any) => {
-  //        console.log('Course added successfully:', response);
-  //        alert('Course added successfully!');
-  //        this.router.navigate(['/viewAllCourses']);
-  //      },
-  //      error: (err) => {
-  //        console.error('Error adding course:', err);
-  //        alert('Failed to add course. Please try again later.');
-  //      }
-  //    });
-  //  } else {
-  //    alert('Please fill in all required fields.');
-  //  }
-  //}
+
+  onSubmit() {
+    this.lzservice.addCourse(this.courseName, this.courseDescription, this.instructorId)
+      .subscribe({
+        next: (res) => {
+          alert('Course added successfully!');
+        },
+        error: (err) => {
+          alert('Error adding course.');
+          console.error(err);
+        }
+      });
+  }
 }

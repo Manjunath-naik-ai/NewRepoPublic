@@ -1,1 +1,25 @@
-<p>number-of-elements works!</p>
+<app-navbar></app-navbar>
+
+<div class="form-wrapper">
+  <form #courseForm="ngForm" (ngSubmit)="onSubmit(courseForm)">
+    <div class="form-group">
+      <label for="inputNumber">Enter Course ID</label>
+      <input type="number"
+             id="inputNumber"
+             name="inputNumber"
+             required
+             ngModel
+             placeholder="e.g. 101" />
+    </div>
+
+    <button type="submit">Get Enrollment Count</button>
+
+    <div *ngIf="counts !== null" class="result">
+      Total Enrollments: {{ counts }}
+    </div>
+
+    <div *ngIf="errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

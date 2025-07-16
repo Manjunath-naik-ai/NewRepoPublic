@@ -13,6 +13,7 @@ import { AddCourse } from './add-course/add-course';
 import { ViewAllUser } from './view-all-user/view-all-user';
 import { ViewInstructor } from './view-instructor/view-instructor';
 import { AllFeedBack } from './all-feed-back/all-feed-back';
+import { NumberOfElements } from './number-of-elements/number-of-elements'; 
 
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'viewAlluser', component: ViewAllUser },
   { path: 'viewinstructor', component: ViewInstructor },
   { path: 'allFeedback', component: AllFeedBack },
+  { path: 'numberOfElements', component: NumberOfElements }, 
 
 
 

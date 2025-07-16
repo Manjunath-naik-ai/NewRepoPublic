@@ -1,17 +1,19 @@
+<app-navbar></app-navbar>
+
 <div class="form-container">
   <h2>Add New Course</h2>
-  <form>
+  <form (ngSubmit)="onSubmit()" #courseForm="ngForm">
     <div class="form-group">
       <label for="courseName">Course Name</label>
-      <input type="text" id="courseName" name="courseName" required>
+      <input type="text" id="courseName" name="courseName" [(ngModel)]="courseName" required>
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea id="description" name="description" rows="4" required></textarea>
+      <textarea id="description" name="description" [(ngModel)]="courseDescription" rows="4" required></textarea>
     </div>
     <div class="form-group">
-      <label for="titleId">Title ID</label>
-      <input type="text" id="titleId" name="titleId" required>
+      <label for="instructorId">Instructor ID</label>
+      <input type="number" id="instructorId" name="instructorId" [(ngModel)]="instructorId" required>
     </div>
     <button type="submit">Add Course</button>
   </form>
