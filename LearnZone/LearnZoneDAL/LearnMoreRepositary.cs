@@ -337,22 +337,18 @@ namespace LearnZoneDAL
         #endregion
 
         #region
-        public int AddCourse(string title, string? description, int? instructorId, string? status = "pending")
+        public int AddCourse(Course course)
         {
+            Course crs = new Course();
             try
             {
-                var course = new Course
-                {
-                    Title = title,
-                    Description = description,
-                    InstructorId = instructorId,
-                    Status = status,
-                    CreatedAt = DateTime.Now
-                };
+                crs.Title = course.Title;
+                crs.Description = course.Description;
+                crs.InstructorId = course.InstructorId;
 
-                context.Courses.Add(course);
+                context.Courses.Add(crs);
                 context.SaveChanges();
-                return course.CourseId;
+                return crs.CourseId;
             }
             catch (Exception ex)
             {
@@ -363,6 +359,7 @@ namespace LearnZoneDAL
 
 
         #endregion
+       
 
     }
 }

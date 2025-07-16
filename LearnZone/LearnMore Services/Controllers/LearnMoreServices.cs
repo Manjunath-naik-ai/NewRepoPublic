@@ -3,6 +3,8 @@ using LearnZoneDAL;
 using System.Runtime.CompilerServices;
 using LearnZoneDAL.Interfaces;
 using LearnZoneDAL.Models;
+using System.Xml.Serialization;
+
 
 namespace LearnMore_Services.Controllers
 {
@@ -148,21 +150,32 @@ namespace LearnMore_Services.Controllers
 
         #region AddCourse
         [HttpPost("AddCourse")]
-        public int AddCourse(string title, string description, int instructorId)
+        public IActionResult AddCourse([FromBody] CreateCourseDto dto)
         {
-            int result = 0;
             try
             {
-                result = repositary.AddCourse(title, description, instructorId);
+                Course course = new Course
+                {
+                    Title = dto.Title,
+                    Description = dto.Description,
+                    InstructorId = dto.InstructorId
+                    // Don't set CreatedDate or Status — let DB default work
+                };
+
+                int result = repositary.AddCourse(course);
+                if (result > 0)
+                    return Ok(new { CourseId = result });
+
+                return BadRequest("Course not added");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                result = 0;
+                return StatusCode(500, $"Internal server error: {ex.Message}");
             }
-            return result;
         }
+
         #endregion
-      
+
 
     }
 }

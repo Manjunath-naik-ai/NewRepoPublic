@@ -76,16 +76,12 @@ export class Lzservice {
 
   }
 
-  //AddCourse
-  addCourse(courseName: string, courseDescription: string, coursePrice: number, courseImage: string): Observable<any> {
-    const params = new HttpParams()
-      .set('courseName', courseName)
-      .set('courseDescription', courseDescription)
-      .set('coursePrice', coursePrice.toString())
-      .set('courseImage', courseImage);
-    return this.http.post('https://localhost:7158/api/LearnMoreServices/addCourse', null, { params })
-      .pipe(catchError(this.handleError));
-  }
+  ////AddCourse
+  //addCourse(courseName: string, courseDescription: string, instructorid:Number): Observable<any> {
+  //    Var course =new Icourse();
+  //  return this.http.post('https://localhost:7158/api/LearnMoreServices/addCourse', null, { params })
+  //    .pipe(catchError(this.handleError));
+  //}
 
 
 

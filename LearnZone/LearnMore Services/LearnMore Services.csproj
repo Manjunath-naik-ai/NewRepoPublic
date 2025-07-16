@@ -15,8 +15,4 @@
     <ProjectReference Include="..\LearnZoneDAL\LearnZoneDAL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="interface\" />
-  </ItemGroup>
-
 </Project>
