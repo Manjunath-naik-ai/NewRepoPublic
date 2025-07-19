@@ -21,6 +21,10 @@ import { AllFeedBack } from './all-feed-back/all-feed-back';
 import { AddCourse } from './add-course/add-course';
 import { NumberOfElements } from './number-of-elements/number-of-elements';
 import { ViewProfile } from './view-profile/view-profile';
+import { UserDashBoard } from './user-dash-board/user-dash-board';
+import { ViewCoures } from './view-coures/view-coures';
+import { ViewChapters } from './view-chapters/view-chapters';
+import { GiveFeedBack } from './give-feed-back/give-feed-back';
 
 
 
@@ -42,7 +46,11 @@ import { ViewProfile } from './view-profile/view-profile';
     AllFeedBack,
     AddCourse,
     NumberOfElements,
-    ViewProfile
+    ViewProfile,
+    UserDashBoard,
+    ViewCoures,
+    ViewChapters,
+    GiveFeedBack
   ],
   imports: [
     BrowserModule,
