@@ -23,7 +23,7 @@ export class UserDashBoard implements OnInit {
   courses: ICourse[] = [];
 
   getAllCourses() {
-
+    console.log(sessionStorage.getItem('user'));
     this.lzservice.viewAllCourse().subscribe({
       next: (data: any) => {
         this.courses = data;

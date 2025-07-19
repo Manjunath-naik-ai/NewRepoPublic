@@ -46,4 +46,44 @@ export class Navbar {
   }
 
 
+  gotohome(): void {
+    console.log(sessionStorage.getItem('user'));
+
+   const userStr = sessionStorage.getItem('user');
+
+if (userStr) {
+    const user = JSON.parse(userStr);
+  console.log(user.role);
+  if (user.role === "User") {
+    console.log('user is User, navigating to user dashboard');
+    this.router.navigate(['/userdashBoard']);
+
+
+  }
+  else if (user.role === "Admin") {
+    this.router.navigate(['/Logindashboard']);
+  }
+
+
+
+} else {
+    console.log('No user data found in sessionStorage.');
+}
+
+
+
+
+
+    if (sessionStorage.getItem('user') === "User") {
+      this.router.navigate(['/userdashBoard']);
+
+
+    }
+    else if (sessionStorage.getItem('user') === "Admin") {
+      this.router.navigate(['/Logindashboard']);
+    }
+
+
+
+  }
 }

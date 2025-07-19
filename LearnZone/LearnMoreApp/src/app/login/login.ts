@@ -27,7 +27,15 @@ export class Login implements OnInit {
           if (user && user.role) {
             
             console.log('Logged in user:', user);
-            localStorage.setItem('user', JSON.stringify(user));
+            sessionStorage.setItem('user', JSON.stringify(user));
+
+
+            // Try this in ngOnInit or after login
+       
+              const userStr = sessionStorage.getItem('user');
+              console.log('Stored user:', userStr); // Should print JSON string
+            
+
             alert(`Welcome ${user.name}! You are logged in as ${user.role}.`);
 
             switch (user.role.toLowerCase()) {
