@@ -359,7 +359,30 @@ namespace LearnZoneDAL
 
 
         #endregion
-       
+
+        //-------------------------------------------
+        // user dashboard methods
+        #region
+        public List<Course> GetallCourses()
+        {
+            List<Course> courses = new List<Course>();
+            try
+            {
+                courses = context.Courses.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving courses: " + ex.Message);
+                courses = null;
+            }
+            return courses;
+
+        }
+
+        #endregion
+
+
 
     }
 }
+

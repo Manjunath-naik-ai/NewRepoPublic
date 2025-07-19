@@ -1,0 +1,72 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive */
+  gap: 20px;
+}
+
+.course-box {
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 1 / 1;
+}
+
+  .course-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .course-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #1a73e8;
+  }
+
+  .course-box p {
+    font-size: 0.9rem;
+    color: #444;
+    flex-grow: 1;
+  }
+
+  .course-box small {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 10px;
+    display: block;
+  }
+
+.view-btn {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+  .view-btn:hover {
+    background-color: #155ab6;
+  }

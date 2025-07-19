@@ -92,7 +92,11 @@ export class Lzservice {
       .pipe(catchError(this.handleError));
   }
 
-
+  //getAllCourse
+  getAllCourse(): Observable<any> {
+    return this.http.get<ICourse[]>('https://localhost:7158/api/LearnMoreServices/getAllCourse')
+      .pipe(catchError(this.handleError));
+  }
 
 
 

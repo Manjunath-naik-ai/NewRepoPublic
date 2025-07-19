@@ -178,5 +178,21 @@ namespace LearnMore_Services.Controllers
         #endregion
 
 
+        //user DashBoard Methods
+        [HttpGet("GetAllCourse")]
+        public List<Course> GetAllCourse()
+        {
+            List<Course> courses = null;
+            try
+            {
+                courses = repositary.GetallCourses();
+            }
+            catch (Exception)
+            {
+                courses = null;
+            }
+            return courses;
+        }
+
     }
 }

@@ -39,6 +39,8 @@ export class Login implements OnInit {
              
                 break;
               case 'user':
+                this.router.navigate(['/userdashBoard']);
+
               
                 break;
               default:
