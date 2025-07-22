@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 namespace LearnZoneDAL
 {
     public  class LearnMoreRepositary
+
     {
         private readonly LearnZoneContext context;
         public LearnMoreRepositary(LearnZoneContext context)
