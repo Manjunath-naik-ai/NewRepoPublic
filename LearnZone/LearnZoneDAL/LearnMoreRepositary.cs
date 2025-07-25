@@ -339,7 +339,7 @@ namespace LearnZoneDAL
         }
         #endregion
 
-        #region
+        #region AddCourse
         public int AddCourse(Course course)
         {
             Course crs = new Course();
@@ -365,7 +365,7 @@ namespace LearnZoneDAL
 
         //-------------------------------------------
         // user dashboard methods
-        #region
+        #region 
         public List<Course> GetallCourses()
         {
             List<Course> courses = new List<Course>();
@@ -384,8 +384,56 @@ namespace LearnZoneDAL
 
         #endregion
 
+        #region EnrollCourse
+
+        public bool EnrollCourse(int userId, int courseId)
+        {
+            try
+            {
+                // Check if user and course exist
+                var userExists = context.Users.Any(u => u.UserId == userId);
+                var courseExists = context.Courses.Any(c => c.CourseId == courseId);
+                if (!userExists || !courseExists)
+                    return false;
+                var enrollment = new Enrollment
+                {
+                    UserId = userId,
+                    CourseId = courseId,
+                    EnrolledAt = DateTime.Now,
+                    Progress = 0
+                };
+                context.Enrollments.Add(enrollment);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error enrolling in course: " + ex.Message);
+                return false;
+            }
+        }
+        #endregion
 
 
+        #region ViewChaptersByCourseId(int courseId){
+        public List<Chapter> ViewChaptersByCourseId(int courseId)
+        {
+            List<Chapter> chapters = new List<Chapter>();
+            try
+            {
+                chapters = context.Chapters
+                    .Where(c => c.CourseId == courseId)
+                    .OrderBy(c => c.Order)
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error retrieving chapters: " + ex.Message);
+                chapters = null;
+            }
+            return chapters;
+        }
+        #endregion
     }
 }
 

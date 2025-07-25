@@ -178,21 +178,40 @@ namespace LearnMore_Services.Controllers
         #endregion
 
 
-        //user DashBoard Methods
-        [HttpGet("GetAllCourse")]
-        public List<Course> GetAllCourse()
+        #region EnrollCourse
+        [HttpGet("Enroll")]
+        public bool Enroll(int userId, int courseId)
         {
-            List<Course> courses = null;
+            bool result = false;
             try
             {
-                courses = repositary.GetallCourses();
+                result = repositary.EnrollCourse(userId, courseId); 
             }
             catch (Exception)
             {
-                courses = null;
+                result = false;
             }
-            return courses;
+            return result;
         }
+        #endregion
+
+        #region ViewChapter
+        [HttpGet("ViewChapter")]
+        public List<Chapter> ViewChapter(int courseId)
+        {
+            List<Chapter> chapters = null;
+            try
+            {
+                chapters = repositary.ViewChaptersByCourseId(courseId);
+            }
+            catch (Exception)
+            {
+                chapters = null;
+            }
+            return chapters;
+        }
+
+        #endregion
 
     }
 }
