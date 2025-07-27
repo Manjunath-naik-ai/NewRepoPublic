@@ -14,7 +14,9 @@ import { ViewAllUser } from './view-all-user/view-all-user';
 import { ViewInstructor } from './view-instructor/view-instructor';
 import { AllFeedBack } from './all-feed-back/all-feed-back';
 import { NumberOfElements } from './number-of-elements/number-of-elements';
-import { UserDashBoard } from './user-dash-board/user-dash-board'; 
+import { UserDashBoard } from './user-dash-board/user-dash-board';
+import { ViewChapterBycourseId } from './view-chapter-bycourse-id/view-chapter-bycourse-id';
+
 
 
 
@@ -39,7 +41,8 @@ const routes: Routes = [
   { path: 'viewinstructor', component: ViewInstructor },
   { path: 'allFeedback', component: AllFeedBack },
   { path: 'numberOfElements', component: NumberOfElements },
-  { path: 'userdashBoard', component: UserDashBoard }, 
+  { path: 'userdashBoard', component: UserDashBoard },
+  { path: 'viewChapterBycourseId', component: ViewChapterBycourseId }, 
 
 
 

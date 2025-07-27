@@ -25,6 +25,7 @@ import { UserDashBoard } from './user-dash-board/user-dash-board';
 import { ViewCoures } from './view-coures/view-coures';
 import { ViewChapters } from './view-chapters/view-chapters';
 import { GiveFeedBack } from './give-feed-back/give-feed-back';
+import { ViewChapterBycourseId } from './view-chapter-bycourse-id/view-chapter-bycourse-id';
 
 
 
@@ -50,7 +51,8 @@ import { GiveFeedBack } from './give-feed-back/give-feed-back';
     UserDashBoard,
     ViewCoures,
     ViewChapters,
-    GiveFeedBack
+    GiveFeedBack,
+    ViewChapterBycourseId
   ],
   imports: [
     BrowserModule,

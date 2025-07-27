@@ -97,6 +97,21 @@ export class Lzservice {
     return this.http.get<ICourse[]>('https://localhost:7158/api/LearnMoreServices/getAllCourse')
       .pipe(catchError(this.handleError));
   }
+  //enrollCourse
+  enrollCourse(courseId: number, userId: number): Observable<any> {
+    const params = new HttpParams()
+      .set('courseId', courseId.toString())
+      .set('userId', userId.toString());
+    return this.http.post('https://localhost:7158/api/LearnMoreServices/Enroll', null, { params })
+      .pipe(catchError(this.handleError));
+  }
+
+  //getChapteronCourseId
+  getChapteronCourseId(courseId: number): Observable<any> {
+    const params = new HttpParams().set('courseId', courseId.toString());
+    return this.http.get('https://localhost:7158/api/LearnMoreServices/ViewChapter', { params })
+      .pipe(catchError(this.handleError));
+  }
 
 
 
