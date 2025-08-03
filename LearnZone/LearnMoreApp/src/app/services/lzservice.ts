@@ -98,13 +98,22 @@ export class Lzservice {
       .pipe(catchError(this.handleError));
   }
   //enrollCourse
-  enrollCourse(courseId: number, userId: number): Observable<any> {
-    const params = new HttpParams()
-      .set('courseId', courseId.toString())
-      .set('userId', userId.toString());
-    return this.http.post('https://localhost:7158/api/LearnMoreServices/Enroll', null, { params })
-      .pipe(catchError(this.handleError));
+  //enrollCourse(courseId: number, userId: number): Observable<any> {
+  //  const params = new HttpParams()
+  //    .set('courseId', courseId.toString())
+  //    .set('userId', userId.toString());
+  //  return this.http.post('https://localhost:7158/api/LearnMoreServices/Enroll', null, { params })
+  //    .pipe(catchError(this.handleError));
+  //}
+
+  private baseUrl = 'https://localhost:7158/api';
+  enrollCourse(userId: number, courseId: number) {
+
+    return this.http.get(`${this.baseUrl}/LearnMoreServices/Enroll`, {
+      params: { userId: userId.toString(), courseId: courseId.toString() }
+    }).pipe(catchError(this.handleError));
   }
+
 
   //getChapteronCourseId
   getChapteronCourseId(courseId: number): Observable<any> {
