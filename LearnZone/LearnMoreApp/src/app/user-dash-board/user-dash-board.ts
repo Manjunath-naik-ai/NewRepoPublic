@@ -59,6 +59,15 @@ export class UserDashBoard implements OnInit {
         alert("Failed to enroll in the course. Please try again later.");
       }
     });
+
+
+    
+  }
+
+
+  GetAllCourse(courseId: number) {
+    console.log("Navigating to course with ID:", courseId);
+    this.router.navigate(['/ViewChapterBycourseId', courseId]);
   }
 
 }

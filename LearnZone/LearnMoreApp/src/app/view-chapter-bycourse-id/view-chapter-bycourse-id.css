@@ -1,0 +1,110 @@
+.course-details-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.course-header {
+  text-align: center;
+  background: linear-gradient(to right, #8e2de2, #a445b2);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin: 10px 0;
+}
+
+h3 {
+  margin-top: 30px;
+  color: #333;
+}
+
+.chapters-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.chapter-card {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+  .chapter-card h4 {
+    margin-bottom: 5px;
+    color: #4facfe;
+  }
+
+.quiz-section {
+  background: #f4faff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.quiz-card {
+  margin-bottom: 15px;
+}
+
+  .quiz-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .quiz-card li {
+    margin: 5px 0;
+  }
+
+.btn-submit {
+  background: #4facfe;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+  .btn-submit:hover {
+    background: #00c6ff;
+  }
+
+.feedback-form {
+  margin-top: 15px;
+}
+
+  .feedback-form textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+
+.btn-feedback {
+  background: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+  .btn-feedback:hover {
+    background: #218838;
+  }

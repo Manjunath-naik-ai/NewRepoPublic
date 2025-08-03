@@ -26,6 +26,7 @@ import { ViewCoures } from './view-coures/view-coures';
 import { ViewChapters } from './view-chapters/view-chapters';
 import { GiveFeedBack } from './give-feed-back/give-feed-back';
 import { ViewChapterBycourseId } from './view-chapter-bycourse-id/view-chapter-bycourse-id';
+import { GetChaptersByCourseId } from './get-chapters-by-course-id/get-chapters-by-course-id';
 
 
 
@@ -52,7 +53,8 @@ import { ViewChapterBycourseId } from './view-chapter-bycourse-id/view-chapter-b
     ViewCoures,
     ViewChapters,
     GiveFeedBack,
-    ViewChapterBycourseId
+    ViewChapterBycourseId,
+    GetChaptersByCourseId
   ],
   imports: [
     BrowserModule,

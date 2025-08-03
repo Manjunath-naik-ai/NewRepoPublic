@@ -42,7 +42,9 @@ const routes: Routes = [
   { path: 'allFeedback', component: AllFeedBack },
   { path: 'numberOfElements', component: NumberOfElements },
   { path: 'userdashBoard', component: UserDashBoard },
-  { path: 'viewChapterBycourseId', component: ViewChapterBycourseId }, 
+  { path: 'viewChapterBycourseId', component: ViewChapterBycourseId },
+  { path: 'ViewChapterBycourseId/: courseId', component: ViewChapterBycourseId },
+  
 
 
 
