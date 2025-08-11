@@ -434,6 +434,39 @@ namespace LearnZoneDAL
             return chapters;
         }
         #endregion
+
+
+        #region feedbackpost
+        public int insertfeedback(String mesg)
+        {
+
+            try
+            {
+                using (var context = new ElearningDbContext())
+                {
+                    var feedback = new Feedback
+                    {
+                        UserId = userId,
+                        CourseId = courseId,
+                        Rating = rating,
+                        Comments = comments,
+                        SubmittedAt = DateTime.UtcNow
+                    };
+
+                    context.Feedbacks.Add(feedback);
+                    await context.SaveChangesAsync();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error (you can replace with your logger)
+                Console.WriteLine($"Error adding feedback: {ex.Message}");
+                return false;
+            }
+
+        }
+        #endregion
     }
 }
 
