@@ -339,6 +339,7 @@ namespace LearnZoneDAL
         }
         #endregion
 
+
         #region AddCourse
         public int AddCourse(Course course)
         {
@@ -383,6 +384,8 @@ namespace LearnZoneDAL
         }
 
         #endregion
+
+
 
         #region EnrollCourse
 
