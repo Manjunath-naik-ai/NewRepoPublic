@@ -5,8 +5,6 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnZoneDAL", "LearnZoneDAL\LearnZoneDAL.csproj", "{44FEF4D9-2315-44ED-A003-C0CC78A63C9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnZoneConsoleApp", "LearnZoneConsoleApp\LearnZoneConsoleApp.csproj", "{BFE476E1-DB58-4CB6-8487-83F60E1FA811}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnMore Services", "LearnMore Services\LearnMore Services.csproj", "{9A030939-0A38-491F-ACEF-D7D0AD5F2A50}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{44FEF4D9-2315-44ED-A003-C0CC78A63C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44FEF4D9-2315-44ED-A003-C0CC78A63C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44FEF4D9-2315-44ED-A003-C0CC78A63C9C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BFE476E1-DB58-4CB6-8487-83F60E1FA811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFE476E1-DB58-4CB6-8487-83F60E1FA811}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFE476E1-DB58-4CB6-8487-83F60E1FA811}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFE476E1-DB58-4CB6-8487-83F60E1FA811}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9A030939-0A38-491F-ACEF-D7D0AD5F2A50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A030939-0A38-491F-ACEF-D7D0AD5F2A50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A030939-0A38-491F-ACEF-D7D0AD5F2A50}.Release|Any CPU.ActiveCfg = Release|Any CPU
