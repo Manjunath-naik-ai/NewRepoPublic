@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Lzservice } from '../services/lzservice';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.css']
 })
 export class Register {
-  constructor(private lzservice: Lzservice) { }
+  constructor(private lzservice: Lzservice, private router: Router) { }
 
   SubmitRegister(form: NgForm): void {
     if (form.valid) {
@@ -17,11 +18,15 @@ export class Register {
       this.lzservice.Register(name, email, password).subscribe({
         next: (response) => {
           console.log('Registration successful', response);
-          // Handle successful registration (e.g., show message, navigate)
+          alert('Registration successful! Please log in.');
+          this.router.navigate(['/login']);   
+
+          
         },
         error: (error) => {
           console.error('Registration failed', error);
-          // Handle registration error (e.g., show error message)
+          alert('Registration  Failed Try Again');
+         
         }
       });
     } else {
